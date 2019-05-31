@@ -15,10 +15,22 @@ body {
   text-align: center;
 }
 
-#pigeon {
+.pigeon {
   height: 500px;
   position: relative;
   left: -150px;
+}
+
+#unhappyPigeon {
+  display: none;
+  height: 400px;
+  left: -100px;
+}
+
+#happyPigeon {
+  display: none;
+  height: 400px;
+  left: -100px;
 }
 
 #speechbubble {
@@ -87,6 +99,25 @@ p .targetNumber {
   font-family: "Ubuntu", Arial, Helvetica, sans-serif;
 }
 
+.losingText {
+  display: none;
+}
+
+.winningText {
+  display: none;
+}
+
+.winningText h2 {
+  margin: -10px 0 -15px;
+}
+
+h2 {
+  font-family: "Pangolin", Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  text-align: center;
+  color: #ea8e82;
+}
+
 p .snackTotal {
   font-family: "Pangolin", Arial, Helvetica, sans-serif;
   font-size: 7rem;
@@ -107,6 +138,10 @@ p .snackTotal {
   text-align: right;
 }
 
+.playAgain {
+  text-decoration: underline;
+}
+
 .playAgain:hover {
-  color: #ea8e82;
+  color: #a5cc95;
 }

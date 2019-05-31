@@ -55,8 +55,11 @@ var game = function() {
   //On win, alerts user to win, adds to win count
   var youWin = function() {
     setTimeout(function() {
-      alert("you win!");
-    }, 500);
+      $("#normalPigeon").hide();
+      $("#happyPigeon").show();
+      $(".gameText").hide();
+      $(".winningText").show();
+    }, 100);
     wins += 1;
     $(".wins").text(wins);
     console.log("target " + targetNumber);
@@ -65,7 +68,10 @@ var game = function() {
   //On loss, alerts user to loss, adds to loss count
   var youLose = function() {
     setTimeout(function() {
-      alert("you lose!");
+      $("#normalPigeon").hide();
+      $("#unhappyPigeon").show();
+      $(".gameText").hide();
+      $(".losingText").show();
     }, 100);
     losses += 1;
     $(".losses").text(losses);
@@ -123,6 +129,12 @@ var game = function() {
   //Restart functionality
   $(".playAgain").on("click", function() {
     totalValue = 0;
+    $("#normalPigeon").show();
+    $("#unhappyPigeon").hide();
+    $("#happyPigeon").hide();
+    $(".gameText").show();
+    $(".losingText").hide();
+    $(".winningText").hide();
     $(".snackTotal").text(totalValue);
     targetNumber = 0;
     generateTargetNumber();
