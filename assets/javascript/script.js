@@ -56,75 +56,83 @@ var game = function() {
   var youWin = function() {
     setTimeout(function() {
       $("#normalPigeon").hide();
-      $("#happyPigeon").show();
+      $("#happyPigeon").fadeIn();
       $(".gameText").hide();
-      $(".winningText").show();
+      $(".winningText").fadeIn();
+      $("#hotdog").off("click");
+      $("#cookie").off("click");
+      $("#iceCream").off("click");
+      $("#apple").off("click");
     }, 100);
     wins += 1;
     $(".wins").text(wins);
-    console.log("target " + targetNumber);
-    console.log("total" + totalValue);
   };
   //On loss, alerts user to loss, adds to loss count
   var youLose = function() {
     setTimeout(function() {
       $("#normalPigeon").hide();
-      $("#unhappyPigeon").show();
+      $("#unhappyPigeon").fadeIn();
       $(".gameText").hide();
-      $(".losingText").show();
+      $(".losingText").fadeIn();
+      $("#hotdog").off("click");
+      $("#cookie").off("click");
+      $("#iceCream").off("click");
+      $("#apple").off("click");
     }, 100);
     losses += 1;
     $(".losses").text(losses);
-    console.log("target " + targetNumber);
-    console.log("total" + totalValue);
   };
-
-  //Calls functions to generate the target number and food values
-  generateTargetNumber();
-  generateFoodValues();
 
   //When user clicks on food items, their value is added to the total and written to
   //the page.  Then, winning and losing conditions are checked, and if met will
   //execute win/loss function
-  $("#hotdog").on("click", function() {
-    totalValue += hotDogValue;
-    $(".snackTotal").text(totalValue);
-    if (totalValue == targetNumber) {
-      youWin();
-    } else if (totalValue > targetNumber) {
-      youLose();
-    }
-  });
 
-  $("#cookie").on("click", function() {
-    totalValue += cookieValue;
-    $(".snackTotal").text(totalValue);
-    if (totalValue == targetNumber) {
-      youWin();
-    } else if (totalValue > targetNumber) {
-      youLose();
-    }
-  });
+  var foodButtons = function() {
+    $("#hotdog").on("click", function() {
+      totalValue += hotDogValue;
+      $(".snackTotal").text(totalValue);
+      if (totalValue == targetNumber) {
+        youWin();
+      } else if (totalValue > targetNumber) {
+        youLose();
+      }
+    });
 
-  $("#iceCream").on("click", function() {
-    totalValue += iceCreamValue;
-    $(".snackTotal").text(totalValue);
-    if (totalValue == targetNumber) {
-      youWin();
-    } else if (totalValue > targetNumber) {
-      youLose();
-    }
-  });
+    $("#cookie").on("click", function() {
+      totalValue += cookieValue;
+      $(".snackTotal").text(totalValue);
+      if (totalValue == targetNumber) {
+        youWin();
+      } else if (totalValue > targetNumber) {
+        youLose();
+      }
+    });
 
-  $("#apple").on("click", function() {
-    totalValue += appleValue;
-    $(".snackTotal").text(totalValue);
-    if (totalValue == targetNumber) {
-      youWin();
-    } else if (totalValue > targetNumber) {
-      youLose();
-    }
-  });
+    $("#iceCream").on("click", function() {
+      totalValue += iceCreamValue;
+      $(".snackTotal").text(totalValue);
+      if (totalValue == targetNumber) {
+        youWin();
+      } else if (totalValue > targetNumber) {
+        youLose();
+      }
+    });
+
+    $("#apple").on("click", function() {
+      totalValue += appleValue;
+      $(".snackTotal").text(totalValue);
+      if (totalValue == targetNumber) {
+        youWin();
+      } else if (totalValue > targetNumber) {
+        youLose();
+      }
+    });
+  };
+
+  //Calls functions to generate the target number and food values, and for button behavior
+  generateTargetNumber();
+  generateFoodValues();
+  foodButtons();
 
   //Restart functionality
   $(".playAgain").on("click", function() {
@@ -139,7 +147,10 @@ var game = function() {
     targetNumber = 0;
     generateTargetNumber();
     generateFoodValues();
+    foodButtons();
   });
 };
 
-game();
+$(document).ready(function() {
+  game();
+});
