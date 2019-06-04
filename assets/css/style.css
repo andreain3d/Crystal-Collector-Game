@@ -2,6 +2,15 @@ body {
   background-image: url("../images/bg.jpg");
 }
 
+h2 {
+  font-family: "Pangolin", Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  text-align: center;
+  color: #ea8e82;
+}
+
+/*********Main section*********/
+
 .jumbotron {
   margin: 30px 0 0;
   padding: 15px 32px 0px;
@@ -19,18 +28,6 @@ body {
   height: 500px;
   position: relative;
   left: -150px;
-}
-
-#unhappyPigeon {
-  display: none;
-  height: 400px;
-  left: -100px;
-}
-
-#happyPigeon {
-  display: none;
-  height: 400px;
-  left: -100px;
 }
 
 #speechbubble {
@@ -99,6 +96,25 @@ p .targetNumber {
   font-family: "Ubuntu", Arial, Helvetica, sans-serif;
 }
 
+p .snackTotal {
+  font-family: "Pangolin", Arial, Helvetica, sans-serif;
+  font-size: 7rem;
+}
+
+/***********Winning and losing*********/
+
+#unhappyPigeon {
+  display: none;
+  height: 400px;
+  left: -100px;
+}
+
+#happyPigeon {
+  display: none;
+  height: 400px;
+  left: -100px;
+}
+
 .losingText {
   display: none;
 }
@@ -111,17 +127,7 @@ p .targetNumber {
   margin: -10px 0 -15px;
 }
 
-h2 {
-  font-family: "Pangolin", Arial, Helvetica, sans-serif;
-  font-size: 4rem;
-  text-align: center;
-  color: #ea8e82;
-}
-
-p .snackTotal {
-  font-family: "Pangolin", Arial, Helvetica, sans-serif;
-  font-size: 7rem;
-}
+/*********Food items***********/
 
 .food {
   height: 150px;
@@ -133,6 +139,8 @@ p .snackTotal {
 .food:hover {
   border: solid 8px #b3d6d8;
 }
+
+/********Wins, losses, and play again********/
 
 .bar .bubble {
   text-align: right;
